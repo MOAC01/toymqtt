@@ -103,7 +103,7 @@ MQTT的每个操作(连接、订阅、取消订阅、发布、Ping、断开连�
 
 例如，客户端请求连接的报文如下：
 
-![a1721684-2396-4af9-bc46-293838cf4350](file:///Typedown/a1721684-2396-4af9-bc46-293838cf4350.png)
+![a1721684-2396-4af9-bc46-293838cf4350](Typedown/a1721684-2396-4af9-bc46-293838cf4350.png)
 
 上图中，控制码(消息类型码)和剩余长度共同组成了请求连接的固定头，那么除了共同组成可变头的两个字节，剩下的内容都是可变头的内容，因为请求连接不需要携带载荷，所以连接报文仅由固定头+可变头组成。可变头中包含的依然是报文的控制信息，但是有些字段的长度不是固定的，例如上图中的Client ID和UserName和Password长度就是不固定的，所以它们还分别用了Client ID Length、 UserName Length、Password Length来标识它们的长度，这样服务端就知道应该从哪里开始取字段值，以及取多少字节，所以称为可变头。具体的字段含义如下表：
 
@@ -124,7 +124,7 @@ MQTT的每个操作(连接、订阅、取消订阅、发布、Ping、断开连�
 
 Connect Flags 虽然只有1字节，但却包含了多项重要的控制信息：
 
-![0ea545ee-5e07-4edc-9e4b-1b7646226df3](file:///C:/Users/Lizhe/Pictures/Typedown/0ea545ee-5e07-4edc-9e4b-1b7646226df3.png)
+![0ea545ee-5e07-4edc-9e4b-1b7646226df3](Typedown/0ea545ee-5e07-4edc-9e4b-1b7646226df3.png)
 
 | 位      | 7       | 6      | 5      | 4    | 3    | 2        | 1      | 0    |
 |:------:|:-------:|:------:|:------:|:----:|:----:|:--------:|:------:|:----:|
@@ -154,11 +154,11 @@ Connect Flags 虽然只有1字节，但却包含了多项重要的控制信息�
 
 再来看发布消息的报文结构：
 
-![cfe614f5-62a3-4ca3-a122-228e745375f2](file:///C:/Users/Lizhe/Pictures/Typedown/cfe614f5-62a3-4ca3-a122-228e745375f2.png)
+![cfe614f5-62a3-4ca3-a122-228e745375f2](Typedown/cfe614f5-62a3-4ca3-a122-228e745375f2.png)
 
 上图中，向服务端发送了一条内容为”test“的消息，那么”test“就是这条发布消息的负载(Payload)，而且它前面依然包含了固定头的消息类型码和剩余长度，以及包含主题长度(Topic Legth)、主题名称和消息ID(Message Identifier)的可变头, 但发布消息的控制码既指定了消息类型，还包含了一些控制信息，这些信息如下表：
 
-![5fac7af3-23c3-4535-bc7d-46b01b0610c2](file:///C:/Users/Lizhe/Pictures/Typedown/5fac7af3-23c3-4535-bc7d-46b01b0610c2.png)
+![5fac7af3-23c3-4535-bc7d-46b01b0610c2](Typedown/5fac7af3-23c3-4535-bc7d-46b01b0610c2.png)
 
 | 位   | 7     | 6     | 5     | 4     | 3         | 2     | 1     | 0    |
 | --- |:-----:|:-----:|:-----:|:-----:|:---------:|:-----:|:-----:|:----:|
@@ -170,17 +170,17 @@ MQTT总共包含如下的类型码：
 
 上述表格的4-7位：
 
-![ac6cab05-8f49-416d-bfb5-041e738670fc](file:///C:/Users/Lizhe/Pictures/Typedown/ac6cab05-8f49-416d-bfb5-041e738670fc.png)
+![ac6cab05-8f49-416d-bfb5-041e738670fc](Typedown/ac6cab05-8f49-416d-bfb5-041e738670fc.png)
 
 
 
 上上述表格的0-3位：
 
-![723906f7-9404-4700-9707-ed391d52e613](file:///C:/Users/Lizhe/Pictures/Typedown/723906f7-9404-4700-9707-ed391d52e613.png)
+![723906f7-9404-4700-9707-ed391d52e613](Typedown/723906f7-9404-4700-9707-ed391d52e613.png)
 
 再例如下图的PING报文，就只包含了固定头：
 
-![0ceea394-2d59-47e3-96ab-ed480371860a](file:///C:/Users/Lizhe/Pictures/Typedown/0ceea394-2d59-47e3-96ab-ed480371860a.png)
+![0ceea394-2d59-47e3-96ab-ed480371860a](Typedown/0ceea394-2d59-47e3-96ab-ed480371860a.png)
 
 
 
