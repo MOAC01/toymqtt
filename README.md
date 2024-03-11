@@ -79,7 +79,7 @@ Usage: toymqtt-client [OPTIONS]... to connect to broker  
 
 该客户端具有较友好的界面：
 
-![67380760-1494-477a-860b-8ac438212cda](file:///C:/Users/Lizhe/Pictures/Typedown/67380760-1494-477a-860b-8ac438212cda.png)
+![67380760-1494-477a-860b-8ac438212cda](file:///Typedown/67380760-1494-477a-860b-8ac438212cda.png)
 
 ## MQTT简介
 
